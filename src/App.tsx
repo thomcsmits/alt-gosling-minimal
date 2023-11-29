@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { GoslingComponent, GoslingRef } from "gosling.js";
+import { AltGoslingComponent } from "./AltGoslingComponent";
 
 const goslingSpec = {
   title: "Basic Marks: bar",
@@ -28,25 +29,11 @@ const goslingSpec = {
 };
 
 function App() {
-  const gosRef = useRef<GoslingRef>(null);
-
-  if (gosRef.current) {
-    //rawData
-    const currentRef = gosRef.current;
-    currentRef.api.subscribe("rawData", (type, data) => {
-      console.log("rawData", data);
-    });
-    // specProcessed
-    currentRef.api.subscribe("specProcessed", (type, data) => {
-      console.log("specProcessed", data);
-    });
-  }
-
   return (
-    <div>
-      <GoslingComponent ref={gosRef} spec={goslingSpec} />
-    </div>
-  );
+    <>
+        <AltGoslingComponent spec={goslingSpec}/>
+   </>
+)
 }
 
 export default App;
