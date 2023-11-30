@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@emotion/react':
     specifier: ^11.11.1
@@ -16,7 +12,10 @@ dependencies:
     version: 0.12.0(pixi.js@7.3.2)(react-dom@18.2.0)(react@18.2.0)
   pixi.js:
     specifier: ^7.3.1
-    version: 7.3.2(@pixi/utils@7.3.2)
+    version: 7.3.2
+  pubsub-js:
+    specifier: ^1.9.4
+    version: 1.9.4
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -28,6 +27,9 @@ devDependencies:
   '@mui/material':
     specifier: ^5.14.16
     version: 5.14.16(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
+  '@types/pubsub-js':
+    specifier: ^1.8.6
+    version: 1.8.6
   '@types/react':
     specifier: ^18.2.15
     version: 18.2.33
@@ -988,14 +990,13 @@ packages:
       '@pixi/display': 7.3.2(@pixi/core@7.3.2)
     dev: false
 
-  /@pixi/assets@7.3.2(@pixi/core@7.3.2)(@pixi/utils@7.3.2):
+  /@pixi/assets@7.3.2(@pixi/core@7.3.2):
     resolution: {integrity: sha512-yteq6ptAxA09EcwU9D9hl7qr5yWIqy+c2PsXkTDkc76vTAwIamLY3KxLq2aR5y1U4L4O6aHFJd26uNhHcuTPmw==}
     peerDependencies:
       '@pixi/core': 7.3.2
       '@pixi/utils': 7.3.2
     dependencies:
       '@pixi/core': 7.3.2
-      '@pixi/utils': 7.3.2
       '@types/css-font-loading-module': 0.0.7
     dev: false
 
@@ -1015,7 +1016,7 @@ packages:
       '@pixi/assets': 7.3.2
       '@pixi/core': 7.3.2
     dependencies:
-      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)(@pixi/utils@7.3.2)
+      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)
       '@pixi/core': 7.3.2
     dev: false
 
@@ -1257,7 +1258,7 @@ packages:
       '@pixi/assets': 7.3.2
       '@pixi/core': 7.3.2
     dependencies:
-      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)(@pixi/utils@7.3.2)
+      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)
       '@pixi/core': 7.3.2
     dev: false
 
@@ -1270,7 +1271,7 @@ packages:
       '@pixi/mesh': 7.3.2
       '@pixi/text': 7.3.2
     dependencies:
-      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)(@pixi/utils@7.3.2)
+      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)
       '@pixi/core': 7.3.2
       '@pixi/display': 7.3.2(@pixi/core@7.3.2)
       '@pixi/mesh': 7.3.2(@pixi/core@7.3.2)(@pixi/display@7.3.2)
@@ -1375,6 +1376,10 @@ packages:
 
   /@types/prop-types@15.7.9:
     resolution: {integrity: sha512-n1yyPsugYNSmHgxDFjicaI2+gCNjsBck8UX9kuofAKlc0h1bL+20oSF72KeNaW2DUlesbEVCFgyV2dPGTiY42g==}
+
+  /@types/pubsub-js@1.8.6:
+    resolution: {integrity: sha512-Kwug5cwV0paUDm/NfwDx1sp9xI0bGIvmWJjJWCU8NngkCCMt3EIC7oPDvb6fV7BR8kPpFyyBu4D11bda/2MdPA==}
+    dev: true
 
   /@types/raf@3.4.2:
     resolution: {integrity: sha512-sM4HyDVlDFl4goOXPF+g9nNHJFZQGot+HgySjM4cRjqXzjdatcEvYrtG4Ia8XumR9T6k8G2tW9B7hnUj51Uf0A==}
@@ -2565,7 +2570,7 @@ packages:
       jspdf: 2.5.1
       lodash-es: 4.17.21
       nanoevents: 7.0.1
-      pixi.js: 7.3.2(@pixi/utils@7.3.2)
+      pixi.js: 7.3.2
       pubsub-js: 1.9.4
       quick-lru: 6.1.2
       rbush: 3.0.1
@@ -2657,7 +2662,7 @@ packages:
       genbank-parser: 1.2.4
       ndarray: 1.0.19
       pako: 1.0.11
-      pixi.js: 7.3.2(@pixi/utils@7.3.2)
+      pixi.js: 7.3.2
       prismjs: 1.29.0
       prop-types: 15.8.1
       pub-sub-es: 2.1.1
@@ -2669,7 +2674,7 @@ packages:
       react-grid-layout: 0.16.6(react-dom@18.2.0)(react@18.2.0)
       react-resizable: 1.11.1(react-dom@18.2.0)(react@18.2.0)
       react-simple-code-editor: 0.9.15(react-dom@18.2.0)(react@18.2.0)
-      react-sortable-hoc: 1.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
+      react-sortable-hoc: 1.11.0(react-dom@18.2.0)(react@18.2.0)
       reactcss: 1.2.3(react@18.2.0)
       robust-point-in-polygon: 1.0.3
       slugid: 3.2.0
@@ -3092,12 +3097,12 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pixi.js@7.3.2(@pixi/utils@7.3.2):
+  /pixi.js@7.3.2:
     resolution: {integrity: sha512-GJickUrT3UcBInGT1CU6cv2oktCdocE5QM74CD3t+weiJPPWIzleNlp7zrBR5QIDdU6bEO8CUgUXH2Y9QvlCMw==}
     dependencies:
       '@pixi/accessibility': 7.3.2(@pixi/core@7.3.2)(@pixi/display@7.3.2)(@pixi/events@7.3.2)
       '@pixi/app': 7.3.2(@pixi/core@7.3.2)(@pixi/display@7.3.2)
-      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)(@pixi/utils@7.3.2)
+      '@pixi/assets': 7.3.2(@pixi/core@7.3.2)
       '@pixi/compressed-textures': 7.3.2(@pixi/assets@7.3.2)(@pixi/core@7.3.2)
       '@pixi/core': 7.3.2
       '@pixi/display': 7.3.2(@pixi/core@7.3.2)
@@ -3340,10 +3345,9 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-sortable-hoc@1.11.0(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
+  /react-sortable-hoc@1.11.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-v1CDCvdfoR3zLGNp6qsBa4J1BWMEVH25+UKxF/RvQRh+mrB+emqtVHMgZ+WreUiKJoEaiwYoScaueIKhMVBHUg==}
     peerDependencies:
-      prop-types: ^15.5.7
       react: ^0.14.0 || ^15.0.0 || ^16.0.0
       react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -3888,3 +3892,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

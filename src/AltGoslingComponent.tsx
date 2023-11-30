@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gosling, { GoslingComponent } from 'gosling.js';
 import type { Datum } from 'gosling.js/dist/src/gosling-schema';
+import PubSub from 'pubsub-js';
 
 import Button from '@mui/material/Button';
 
@@ -25,6 +26,17 @@ export const AltGoslingComponent = (props: AltGoslingCompProps) => {
         setTheme('dark')
     }
  
+    // Directly subscribe to the `rawData` event when the component is mounted
+    useEffect(() => {
+        // rawData
+        PubSub.subscribe("rawData", (_: string, data: {id: string, data: Datum[]}) => {
+            console.log("rawData", data);
+        });
+        return () => {
+            PubSub.unsubscribe("rawData");
+        }
+    }, []);
+
     // Option 1: UseEffect
     useEffect(() => {
         if (gosRef.current) {
@@ -35,14 +47,9 @@ export const AltGoslingComponent = (props: AltGoslingCompProps) => {
                
 
             });
-            //rawData
-            currentRef.api.subscribe("rawData", (_: string, data: {id: string, data: Datum[]}) => {
-                console.log("rawData", data);
-            });
         }
         return () => {
             gosRef.current?.api.unsubscribe('specProcessed');
-            gosRef.current?.api.unsubscribe('rawData');
         }
     }, [gosRef.current]);
 
