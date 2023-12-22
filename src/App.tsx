@@ -30,17 +30,16 @@ const goslingSpec = {
 function App() {
   const gosRef = useRef<GoslingRef>(null);
 
-  if (gosRef.current) {
-    //rawData
-    const currentRef = gosRef.current;
-    currentRef.api.subscribe("rawData", (type, data) => {
-      console.log("rawData", data);
-    });
-    // specProcessed
-    currentRef.api.subscribe("specProcessed", (type, data) => {
-      console.log("specProcessed", data);
-    });
-  }
+  useEffect(() => {
+    if (gosRef.current) {
+      const currentRef = gosRef.current;
+      // specProcessed
+      currentRef.api.subscribe("specProcessed", (_, data) => {
+        console.log("specProcessed", data);
+      });
+    }
+    return () => gosRef.current?.api.unsubscribe("specProcessed");
+  }, [gosRef.current])
 
   return (
     <div>
